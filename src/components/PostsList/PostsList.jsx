@@ -15,6 +15,8 @@ const PostsList = () => {
     dispatch(loadAllPosts(debouncedSearch))
   }, [debouncedSearch, dispatch])
 
+  //const date = created_at.replace(/[/:/*/ ]/g, "")
+
   if(!posts.length) return <div>Posts list is empty</div>
 
   return (

@@ -30,6 +30,7 @@ const ModalInner = ({ onClose }) => {
     return () => {
       window.document.removeEventListener('keydown', escHandler)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const closeClickHandler = () => {
@@ -46,15 +47,15 @@ const ModalInner = ({ onClose }) => {
   const [tags, setTags] = useState(detailPost.tags.join(', '))
 
   const dispatch = useDispatch()
-  const submitHandler = () => {
+  const submitHandler = (e) => {
     const preparedPostQuery = {
       title,
       text,
       image,
       tags: tags.split(',').map((el) => el.trim()),
     }
-    const body = preparedPostQuery
-    dispatch(editPostQuery(postId, body, onClose()))
+    e.preventDefault()
+    dispatch(editPostQuery(postId, preparedPostQuery, onClose))
   }
 
   return (

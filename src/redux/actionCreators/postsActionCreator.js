@@ -25,7 +25,7 @@ export const addNewPost = (allPosts) => ({
   payload: allPosts,
 })
 
-export const loadNewPost = (post) => async (dispatch) => {
+export const loadNewPost = (post, e) => async (dispatch) => {
   const response = await fetch('https://api.react-learning.ru/posts', {
     method: 'POST',
     headers: {
@@ -36,6 +36,7 @@ export const loadNewPost = (post) => async (dispatch) => {
   })
   const postsFromApi = await response.json()
   dispatch(addNewPost(postsFromApi))
+  e.target.reset()
 }
 
 export const deletePost = (_id) => ({

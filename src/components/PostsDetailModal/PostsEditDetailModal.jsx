@@ -14,7 +14,7 @@ const PostsEditDetailModal = () => {
     viewModal, closeModal, openModal, detailPost, submitHandler,
   }), [detailPost, viewModal])
 
-  console.log({sharedValues})
+  console.log({sharedValues, closeModal})
 
   return (
     <PostsDetailContext.Provider value={sharedValues}>

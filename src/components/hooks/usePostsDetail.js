@@ -11,7 +11,7 @@ const usePostsDetail = (closeModal) => {
   
   useLayoutEffect(() => {
     dispatch(getDetailPostQuery(postId))
-  }, [])
+  }, [postId, dispatch])
 
   const submitHandler = async (e) => {
     e.preventDefault()

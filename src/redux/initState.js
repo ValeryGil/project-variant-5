@@ -3,6 +3,7 @@ const initState = {
   search: '',
   person: {},
   detailPost: {},
+  comments: [],
 }
 
 export default initState

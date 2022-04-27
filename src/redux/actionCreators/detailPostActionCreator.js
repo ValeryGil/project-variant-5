@@ -17,9 +17,9 @@ export const getDetailPostQuery = (_id) => async (dispatch) => {
   dispatch(getDetailPost(postFromApi))
 }
 
-export const editPost = (newPostObject) => ({
+export const editPost = (editedPost) => ({
   type: EDIT_POST,
-  payload: newPostObject,
+  payload: editedPost,
 })
 
 export const editPostQuery = (_id, formData, closeModal) => async (dispatch) => {

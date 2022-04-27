@@ -18,7 +18,8 @@ const PostForm = () => {
       image,
       tags: tags.split(',').map((el) => el.trim()),
     }
-    dispatch(loadNewPost(JSON.stringify(preparedPostQuery)))
+    const body = JSON.stringify(preparedPostQuery)
+    dispatch(loadNewPost(body))
   }
 
   return (

@@ -1,5 +1,5 @@
 import { EDIT_POST } from "../types/detailPostTypes"
-import { ADD_NEW_POST, DELETE_POST, LIKE_POST, SET_ALL_POSTS } from "../types/postsTypes"
+import { ADD_COMMENT, ADD_NEW_POST, DELETE_COMMENT, DELETE_POST, LIKE_POST, SET_ALL_POSTS } from "../types/postsTypes"
 
 const postsReducer = (store = [], action) => {
   switch (action.type) {
@@ -29,6 +29,15 @@ const postsReducer = (store = [], action) => {
           }
           return post
         }) : [action.payload]
+    
+    case ADD_COMMENT:
+      return [
+        ...store,
+        action.payload
+      ]
+    
+    case DELETE_COMMENT:
+        return store.filter((comment) => comment._id !== action.payload)
 
     default:
       return store
